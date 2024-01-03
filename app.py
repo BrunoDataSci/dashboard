@@ -32,16 +32,21 @@ header {visibility: hidden;}
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-symbol = st.text_input('Enter Symbol', value='AAPL')
-symbol = symbol.upper()
-st.session_state['symbol']=symbol
-start_date = st.date_input('Start Date', value=datetime(2023, 1, 1))
-st.session_state['start_date']=start_date
-today = datetime.now().date()
-tomorrow = today + timedelta(days=1)
-end_date = st.date_input('End Date', value=today)
-end_date= end_date + timedelta(days=1)
-st.session_state['end_date'] = end_date
+col100, col200, col300 = st.columns([1,1,1],gap='large')
+
+with col100:
+    symbol = st.text_input('Enter Symbol', value='AAPL')
+    symbol = symbol.upper()
+    st.session_state['symbol']=symbol
+with col200:
+    start_date = st.date_input('Start Date', value=datetime(2023, 1, 1))
+    st.session_state['start_date']=start_date
+with col300:
+    today = datetime.now().date()
+    tomorrow = today + timedelta(days=1)
+    end_date = st.date_input('End Date', value=today)
+    end_date= end_date + timedelta(days=1)
+    st.session_state['end_date'] = end_date
 
 selected_page = option_menu(menu_title = None, options =['Buy', 'Sell'], icons=['graph-up-arrow', 'graph-down-arrow'], default_index=0, orientation="horizontal")    
 
