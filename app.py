@@ -45,7 +45,7 @@ st.session_state['end_date'] = end_date
 
 selected_page = option_menu(menu_title = None, options =['Buy', 'Sell'], icons=['graph-up-arrow', 'graph-down-arrow'], default_index=0, orientation="horizontal")    
 
-if selected_option == 'Buy':   
+if selected_page == 'Buy':   
     def fetch_data(symbol, start_date, end_date):
         extensions = ["", ".SA", ".L", ".DE", ".TO", ".PA", ".AX",".T",".SS", ".NS", ".HK", ".SI"]
         country = ['US', 'Brazil', 'UK', 'Germany', 'Canada','France','Australia','Japan', 'China', 'India', 'Hong Kong', 'Singapore']
