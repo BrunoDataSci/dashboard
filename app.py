@@ -32,7 +32,7 @@ header {visibility: hidden;}
 """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 
-col100, col200, col300, col400 = st.columns([1,1,1,1],gap='large')
+col100, col200, col300 = st.columns([1,1,1],gap='large')
 
 with col100:   
     symbol = st.text_input('Enter Symbol', value='AAPL')
@@ -50,8 +50,8 @@ with col300:
     end_date= end_date + timedelta(days=1)
     st.session_state['end_date'] = end_date
 
-with col400:
-    selected_page = option_menu(menu_title = None, options =['Buy', 'Sell'], icons=['graph-up-arrow', 'graph-down-arrow'], default_index=0, orientation="horizontal")    
+
+selected_page = option_menu(menu_title = None, options =['Buy', 'Sell'], icons=['graph-up-arrow', 'graph-down-arrow'], default_index=0, orientation="horizontal")    
 
 if selected_page == 'Buy':   
     def fetch_data(symbol, start_date, end_date):
