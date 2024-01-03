@@ -35,6 +35,13 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 col100, col200, col300 = st.columns([1,1,1],gap='large')
 
 with col100:
+    col.markdown(
+    f"""
+    <div style='background-color: #ffcc00; padding: 10px;'>
+        Column {i}
+    </div>
+    """,
+    unsafe_allow_html=True)
     symbol = st.text_input('Enter Symbol', value='AAPL')
     symbol = symbol.upper()
     st.session_state['symbol']=symbol
