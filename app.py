@@ -35,16 +35,17 @@ st.markdown(hide_streamlit_style, unsafe_allow_html=True)
 col100, col200, col300 = st.columns([1,1,1],gap='large')
 
 with col100:
-    col.markdown(
+    col100.markdown(
     f"""
     <div style='background-color: #ffcc00; padding: 10px;'>
-        Column {i}
-    </div>
-    """,
-    unsafe_allow_html=True)
     symbol = st.text_input('Enter Symbol', value='AAPL')
     symbol = symbol.upper()
     st.session_state['symbol']=symbol
+    </div>
+    """,
+    unsafe_allow_html=True)
+    
+
 with col200:
     start_date = st.date_input('Start Date', value=datetime(2023, 1, 1))
     st.session_state['start_date']=start_date
