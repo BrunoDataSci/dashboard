@@ -65,10 +65,10 @@ if selected_page == 'Buy':
                 counter = counter+1
                 #continue
         if not data.empty:
-            st.markdown("<h4 style='text-align: center; color: grey;'>Data downloaded! Explore the menu to access comprehensive insights and analysis tools for the asset you've selected using data science.</h4>", unsafe_allow_html=True)
+            #st.markdown("<h4 style='text-align: center; color: grey;'>Data downloaded! Explore the menu to access comprehensive insights and analysis tools for the asset you've selected using data science.</h4>", unsafe_allow_html=True)
             data_descending = st.session_state.data
             data_descending = data_descending.sort_index(ascending=False)
-            st.write(data_descending)
+            #st.write(data_descending)
         else:
             data = None           
             st.session_state['data'] = data
@@ -76,14 +76,13 @@ if selected_page == 'Buy':
           
     fetch_data(symbol, start_date, end_date)
 
-    st.markdown('Trend')
+    st.title('Trend')
        
     col0, col1 = st.columns([1,1],gap='large')
     col2, col3 = st.columns([1,1],gap='large')
 
     with col0:
       
-      st.title('Buy strategy')
       st.write("The strategy involves using Exponential Moving Averages (EMAs) on the closing price and volume. Users can select the EMA values for both parameters using sliders. The strategy identifies whether the closing price is above the EMA and if the volume is also above the EMA. When the conditions are met, it executes a trade, calculating buy and sell points based on certain criteria for high and low values.")
 
       st.markdown(f"**Asset: {symbol} From: {start_date} To: {end_date}**")
@@ -204,7 +203,7 @@ if selected_page == 'Buy':
 
 
     
-    st.markdown('Bollinger Bands')
+    st.title('Bollinger Bands')
 
     symbol = st.session_state.symbol
     start_date = st.session_state.start_date
@@ -216,8 +215,7 @@ if selected_page == 'Buy':
 
 
     with col4:
-      
-      st.title('Buy strategy')
+
       st.write("The strategy involves using Exponential Moving Averages (EMAs) on the closing price and volume. Users can select the EMA values for both parameters using sliders. The strategy identifies whether the closing price is above the EMA and if the volume is also above the EMA. When the conditions are met, it executes a trade, calculating buy and sell points based on certain criteria for high and low values.")
 
       st.markdown(f"**Asset: {symbol} From: {start_date} To: {end_date}**")
